@@ -1,0 +1,60 @@
+<nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"
+            aria-label="메뉴 토글">☰</button>
+
+        <ul id="primary-menu" class="nav-list">
+            {% assign current_url = page.url %}
+
+            {% for item in site.data.navigation %}
+            {%- comment -%} 표시 여부 결정 (only_on이 있으면 그 페이지에서만 표시) {%- endcomment -%}
+            {% assign show_item = true %}
+            {% if item.only_on %}
+            {% assign show_item = false %}
+            {% for p in item.only_on %}
+            {% if p == current_url %}
+            {% assign show_item = true %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% unless show_item %}
+            {% continue %}
+            {% endunless %}
+
+            {%- comment -%} 활성화 상태 계산 (자식의 #해시 제거 후 비교) {%- endcomment -%}
+            {% assign is_active = false %}
+            {% if item.url and current_url == item.url %}
+            {% assign is_active = true %}
+            {% endif %}
+            {% if item.children %}
+            {% for child in item.children %}
+            {% assign child_path = child.url | split:'#' | first %}
+            {% if current_url == child_path %}
+            {% assign is_active = true %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+
+            <li class="nav-item {% if is_active %}active{% endif %} {% if item.children %}has-children{% endif %}">
+                {% if item.children %}
+                <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+                    {{ item.title }} <span class="caret" aria-hidden="true">▾</span>
+                </button>
+                <ul class="submenu" aria-label="{{ item.title }} menu">
+                    {% for child in item.children %}
+                    <li class="submenu-item">
+                        <a href="{{ child.url | relative_url }}">{{ child.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <a href="{{ item.url | relative_url }}" {% if item.external %} target="_blank" rel="noopener noreferrer"
+                    data-external="true" {% endif %}>
+                    {{ item.title }}
+                </a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

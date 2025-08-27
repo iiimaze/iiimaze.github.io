@@ -1,0 +1,6 @@
+<header class="header">
+    <button class="language-toggle" type="button" aria-label="Toggle language">KOR / ENG</button>
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    {% if page.subtitle %}<h3>{{ page.subtitle }}</h3>{% endif %}
+    {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
+</header>

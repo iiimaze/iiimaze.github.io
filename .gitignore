@@ -1,0 +1,40 @@
+# --- OS / 에디터 ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# --- Node / 패키지 매니저 ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Vite ---
+dist/
+.vite/
+*.local
+
+# Vite 산출물 중 소스맵만 제외 (배포에 불필요)
+assets/zif/**/*.map
+assets/zif/**/*.LICENSE.txt
+
+# --- Jekyll ---
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# --- 테스트/임시 파일 ---
+tmp/
+temp/
+coverage/
+*.tmp
+
+zif/test-videos/
+*.mp4
+*.mov
+*.mkv

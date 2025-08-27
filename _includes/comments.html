@@ -1,0 +1,80 @@
+<section class="comments-card" id="comments">
+    <header class="comments-header">
+        <h2 class="comments-title">
+            <span id="comments-count">Comments</span>
+        </h2>
+    </header>
+
+    <div class="comments-body" id="utterances-container"></div>
+</section>
+
+<script>
+    (function () {
+        // ---- 1) utterances 스크립트 주입 ----
+        const cfg = {
+            repo: '{{ site.utterances.repo }}',
+            issueTerm: '{{ site.utterances.issue_term | default: "pathname" }}',
+            label: '{{ site.utterances.label | default: "" }}',
+            theme: '{{ site.utterances.theme | default: "github-light" }}'
+        };
+
+        const s = document.createElement('script');
+        s.src = 'https://utteranc.es/client.js';
+        s.setAttribute('repo', cfg.repo);
+        s.setAttribute('issue-term', cfg.issueTerm);
+        if (cfg.label) s.setAttribute('label', cfg.label);
+        s.setAttribute('theme', cfg.theme);
+        s.setAttribute('crossorigin', 'anonymous');
+        s.async = true;
+        document.getElementById('utterances-container').appendChild(s);
+
+        // ---- 2) 댓글 수 표시 (best effort) ----
+        // issue-term이 pathname일 때, 해당 pathname이 포함된 이슈를 검색
+        const path = location.pathname.replace(/\/$/, '');
+        const q = `repo:${cfg.repo}+type:issue+in:title+"${encodeURIComponent(path)}"`;
+        fetch(`https://api.github.com/search/issues?q=${q}`)
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (!data || !data.items || !data.items.length) return;
+                // 가장 관련 높은 이슈 하나를 사용
+                const issue = data.items[0];
+                const total = issue.comments || 0;
+                const el = document.getElementById('comments-count');
+                if (el) el.textContent = `${total} Comment${total === 1 ? '' : 's'}`;
+            })
+            .catch(() => { });
+
+        // ---- 3) 다크모드 테마 연동 (선택) ----
+        // body[data-theme="dark"] 를 쓰는 사이트라면:
+        const applyThemeToUtterances = (theme) => {
+            const iframe = document.querySelector('iframe.utterances-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage(
+                { type: 'set-theme', theme },
+                'https://utteranc.es'
+            );
+        };
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        const pickTheme = () => {
+            // 사이트에서 data-theme 관리 중이면 우선
+            const t = document.documentElement.getAttribute('data-theme');
+            if (t === 'dark') return 'github-dark';
+            if (t === 'light') return 'github-light';
+            // 아니면 시스템 설정
+            return prefersDark.matches ? 'github-dark' : 'github-light';
+        };
+
+        // 초기에 한번, 이후 변화에 반응
+        window.addEventListener('message', () => { /* placeholder */ });
+        const onReady = () => applyThemeToUtterances(pickTheme());
+        document.addEventListener('readystatechange', () => {
+            if (document.readyState === 'complete') onReady();
+        });
+        prefersDark.addEventListener('change', () => applyThemeToUtterances(pickTheme()));
+
+        // 사이트의 다크토글 버튼이 data-theme 바꾸면, 아래처럼 호출하세요:
+        // document.documentElement.setAttribute('data-theme', 'dark'); applyThemeToUtterances('github-dark');
+        // document.documentElement.setAttribute('data-theme', 'light'); applyThemeToUtterances('github-light');
+    })();
+</script>

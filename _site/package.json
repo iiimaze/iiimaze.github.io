@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "gifski-wasm": "^2.2.0"
+  }
+}

@@ -1,0 +1,61 @@
+---
+layout: default
+title: 404 Not Found
+h1: 페이지를 찾을 수 없어요 😵
+subtitle: 요청하신 주소가 이동했거나 삭제되었을 수 있어요.
+tagline: 아래 링크로 이동하거나, 주소를 다시 확인해 주세요.
+description: 404 Not Found
+permalink: /404.html
+sitemap: false
+---
+
+<article class="doc" role="main" aria-labelledby="nf-title">
+    <h2 id="nf-title">어떤 페이지를 찾고 있나요?</h2>
+    <p>
+        입력하신 경로가 올바른지 확인해 보세요. 문제가 계속되면 아래 링크를 이용해 이동하거나, 이슈를 남겨 주세요.
+    </p>
+
+    <div class="callout info">
+        <strong>현재 주소:</strong>
+        <code id="requested-path" style="word-break: break-all;"></code>
+    </div>
+
+    <h3>빠른 이동</h3>
+    <ul>
+        <li><a href="{{ '/' | relative_url }}">홈으로</a></li>
+        <li><a href="{{ '/app.html' | relative_url }}">앱 열기</a></li>
+        <li><a href="{{ '/how-it-works.html' | relative_url }}">How it Works</a></li>
+        <li><a href="{{ '/privacy.html' | relative_url }}">Privacy</a></li>
+    </ul>
+
+    <h3>사이트 내비게이션</h3>
+    <p>아래 목록에서 원하는 페이지를 선택하세요.</p>
+    <ul>
+        {% for item in site.data.navigation %}
+        {% if item.external %}
+        <li><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></li>
+        {% else %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <p>
+        링크가 잘못되었다고 생각되면
+        <a href="https://github.com/iiimaze" target="_blank" rel="noopener noreferrer">GitHub</a>
+        에서 알려 주세요.
+    </p>
+
+    <!-- 선택: 큰 버튼 두 개 -->
+    <p>
+        <a class="convert-btn" href="{{ '/' | relative_url }}">홈으로 가기</a>
+    </p>
+</article>
+
+<script>
+    // 404에 진입한 실제 경로를 보여줍니다.
+    (function () {
+        var el = document.getElementById('requested-path');
+        if (el) el.textContent = window.location.pathname + window.location.search + window.location.hash;
+    })();
+</script>

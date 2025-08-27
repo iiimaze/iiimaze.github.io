@@ -1,0 +1,34 @@
+title: Meta Image Labs | 브라우저 기반 안전한 이미지 & 파일 변환
+description: 브라우저에서 100% 로컬로 실행되는 안전한 이미지, 파일 변환 솔루션. 영상을 고품질 gif로 변환 프로그램, 해킹 걱정 없는 디지털 부업 필수 툴.
+keywords: "이미지 프로그램, 파일 변환, 안전한 파일 업로드, 개인정보 보호, 브라우저 파일 변환"
+url: https://iiimaze.github.io
+baseurl: ""
+
+plugins:
+  - jekyll-paginate-v2
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: "/blog/page:num/"
+  title: ":title - page :num"
+  trail:
+    before: 2
+    after: 2
+
+utterances:
+  repo: iiimaze/iiimaze.github.io # 깃허브 owner/repo
