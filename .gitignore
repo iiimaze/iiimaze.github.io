@@ -28,6 +28,10 @@ _site/
 .jekyll-metadata
 .sass-cache/
 
+#Bundler
+vendor/bundle/
+.bundle/
+
 # --- 테스트/임시 파일 ---
 tmp/
 temp/

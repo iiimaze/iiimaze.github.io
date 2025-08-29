@@ -1,11 +1,8 @@
 ---
 layout: default
-title: Meta Image Labs Blog
-permalink: /blog/
-description: "{{ site.title | default: '블로그' }}의 최신 글 모음. Tech & Business 블로그. 블로그에 필요한 고품질 gif 파일, 이미지 메타 테그 등 이미지 관련
-개발 글 수록."
-keywords: "이미지 파일, 이미지 메타테그, 고품질 gif 생성, gif 파일, 이미지 파일명 변경, IT 기술"
+title: Blog
 ---
+
 
 <style>
     .sr-only {
@@ -34,8 +31,9 @@ keywords: "이미지 파일, 이미지 메타테그, 고품질 gif 생성, gif �
                     <em class="name_author" itemprop="author" itemscope itemtype="https://schema.org/Person">
                         <span itemprop="name">{{ post.author | default: site.title }}</span>
                     </em>
-                    <span class="time" itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">{{
-                        post.date | date: "%Y-%m-%d" }}</span>
+                    <span class="time" itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%Y-%m-%d" }}
+                    </span>
                     <meta itemprop="dateModified"
                         content="{{ post.last_modified_at | default: post.date | date_to_xmlschema }}">
                 </div>
@@ -78,27 +76,29 @@ keywords: "이미지 파일, 이미지 메타테그, 고품질 gif 생성, gif �
 
         <meta itemprop="mainEntityOfPage" content="{{ post.url | relative_url }}">
         {%- if site.url -%}
-        <meta itemprop="url" content="{{ site.url }}{{ post.url | relative_url }}">{%- endif -%}
+        <meta itemprop="url" content="{{ site.url }}{{ post.url | relative_url }}">
+        {%- endif -%}
     </article>
     {%- endfor -%}
 
     {%- if paginator -%}
     <nav class="pagination" role="navigation" aria-label="페이지네이션">
-        {%- if paginator.previous_page -%}<a class="page-prev"
-            href="{{ paginator.previous_page_path | relative_url }}">이전</a>{%- endif -%}
-        {%- for page in (1..paginator.total_pages) -%}
-        {%- if page == paginator.page -%}
-        <span class="page current" aria-current="page">{{ page }}</span>
-        {%- else -%}
-        {%- if page == 1 -%}
-        <a class="page" href="{{ '/blog/' | relative_url }}">{{ page }}</a>
-        {%- else -%}
-        <a class="page" href="{{ paginator.paginate_path | replace: ':num', page | relative_url }}">{{ page }}</a>
+        {%- if paginator.previous_page -%}
+        <a class="page-prev" href="{{ paginator.previous_page_path | relative_url }}">이전</a>
         {%- endif -%}
-        {%- endif -%}
+
+        {%- if paginator.page_trail -%}
+        {%- for trail in paginator.page_trail -%}
+        <a class="page{% if trail.num == paginator.page %} current{% endif %}" href="{{ trail.path | relative_url }}"
+            title="{{ trail.title | escape }}">{{ trail.num }}</a>
         {%- endfor -%}
-        {%- if paginator.next_page -%}<a class="page-next"
-            href="{{ paginator.next_page_path | relative_url }}">다음</a>{%- endif -%}
+        {%- else -%}
+        <span class="page current" aria-current="page">{{ paginator.page }}</span>
+        {%- endif -%}
+
+        {%- if paginator.next_page -%}
+        <a class="page-next" href="{{ paginator.next_page_path | relative_url }}">다음</a>
+        {%- endif -%}
     </nav>
     {%- endif -%}
 </section>
@@ -111,9 +111,24 @@ keywords: "이미지 파일, 이미지 메타테그, 고품질 gif 생성, gif �
   "name":"블로그 글 목록",
   "itemListElement":[
     {%- for post in posts_collection -%}
-    {"@type":"ListItem","position":{{ forloop.index }},"url":"{{ site.url }}{{ post.url | relative_url }}","item":{"@type":"BlogPosting","headline":{{ post.title | strip_newlines | jsonify }},"url":"{{ site.url }}{{ post.url | relative_url }}","datePublished":"{{ post.date | date_to_xmlschema }}","dateModified":"{{ post.last_modified_at | default: post.date | date_to_xmlschema }}","author":{"@type":"Person","name":{{ post.author | default: site.title | jsonify }}}{%- if post.image or post.thumbnail -%},"image":"{{ site.url }}{{ (post.image | default: post.thumbnail) | relative_url }}"{%- endif -%}}},
+      {
+        "@type":"ListItem",
+        "position": {{ forloop.index }},
+        "url": "{{ site.url }}{{ post.url | relative_url }}",
+        "item": {
+          "@type":"BlogPosting",
+          "headline": {{ post.title | strip_newlines | jsonify }},
+          "url": "{{ site.url }}{{ post.url | relative_url }}",
+          "datePublished": "{{ post.date | date_to_xmlschema }}",
+          "dateModified": "{{ post.last_modified_at | default: post.date | date_to_xmlschema }}",
+          "author": { "@type":"Person", "name": {{ post.author | default: site.title | jsonify }} }
+          {%- assign img = post.image | default: post.thumbnail -%}
+          {%- if img -%},
+          "image": "{{ site.url }}{{ img | relative_url }}"
+          {%- endif -%}
+        }
+      }{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
-    {}
   ]
 }
 </script>

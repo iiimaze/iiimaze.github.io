@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://iiimaze.github.io/</loc></url>
-  <url><loc>https://iiimaze.github.io/how-it-works.html</loc></url>
-  <url><loc>https://iiimaze.github.io/quality-guide.html</loc></url>
-  <url><loc>https://iiimaze.github.io/compare.html</loc></url>
-  <url><loc>https://iiimaze.github.io/faq.html</loc></url>
-  <url><loc>https://iiimaze.github.io/privacy.html</loc></url>
-  <url><loc>https://iiimaze.github.io/terms.html</loc></url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://iiimaze.github.io/it/2025/08/25/hello-blog-copy-0/</loc>
+<lastmod>2025-08-27T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://iiimaze.github.io/it/2025/08/25/hello-blog-copy-1/</loc>
+<lastmod>2025-08-27T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>https://iiimaze.github.io/apps/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/faq/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/file-renamer-how-it-works/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/file-renamer/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/blog/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/zif/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/privacy/</loc>
+</url>
+<url>
+<loc>https://iiimaze.github.io/zif-how-it-works/</loc>
+</url>
 </urlset>

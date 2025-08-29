@@ -4,9 +4,15 @@ keywords: "이미지 프로그램, 파일 변환, 안전한 파일 업로드, �
 url: https://iiimaze.github.io
 baseurl: ""
 
+permalink: pretty
+lang: ko-KR
+timezone: Asia/Seoul
+
 plugins:
   - jekyll-paginate-v2
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
 
 defaults:
   - scope:
@@ -15,20 +21,31 @@ defaults:
     values:
       layout: "default"
 
+  - scope:
+      path: "blog"
+      type: "pages"
+    values:
+      pagination:
+        enabled: true
+        collection: posts
+        per_page: 5
+        permalink: "/blog/page:num/"
+        sort_field: "date"
+        sort_reverse: true
+        trail:
+          before: 2
+          after: 2
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - README.md
 
-pagination:
-  enabled: true
-  per_page: 3
-  permalink: "/blog/page:num/"
-  title: ":title - page :num"
-  trail:
-    before: 2
-    after: 2
-
 utterances:
-  repo: iiimaze/iiimaze.github.io # 깃허브 owner/repo
+  repo: iiimaze/iiimaze.github.io
+
+naver_site_verification: "98a9d5133fc8d043f732b2bbd09d922e373f2966"
+org:
+  sameAs:
+    - "https://github.com/iiimaze"

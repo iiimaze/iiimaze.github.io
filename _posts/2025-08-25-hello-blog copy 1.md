@@ -37,7 +37,7 @@ toc: true
 
 > 블로그/쇼핑몰 운영을 하다 보면 **이미지 파일명 일괄 변경**이 꼭 필요할 때가 있습니다.  
 > 데스크톱 설치 없이, **100% 로컬 실행**으로 개인정보 걱정 없이 빠르게 정리하는 **File Renamer**의 첫 번째 기록입니다.  
-> 👉 [파일명 일괄 변경기 바로 사용하기](/file-renamer.html)
+> 👉 [파일명 일괄 변경기 바로 사용하기](/file-renamer)
 
 ## 왜 만들었나
 
@@ -89,8 +89,8 @@ toc: true
 
 ### 참고 & 링크
 
-- 사용 가이드: [File Renamer 소개](/file-renamer-intro.html)
-- 바로 실행: [파일명 일괄 변경기](/file-renamer.html)
+- 사용 가이드: [File Renamer 소개](/file-renamer-how-it-works)
+- 바로 실행: [파일명 일괄 변경기](/file-renamer)
 
 {% comment %}
 키워드 메모(비노출): 본문/헤딩에 “파일명 일괄 변경 / 파일 이름 일괄 변경 / File Renamer”를 5회 이상 자연 분산.

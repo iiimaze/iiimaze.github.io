@@ -145,6 +145,20 @@ body {
 }
 .convert-btn:hover, #downloadLink:hover { opacity: .9; transform: translateY(-1px); }
 
+.convert-btn.goback-btn{
+  background:#fff;
+  color:#111;
+  border:1px solid rgba(0,0,0,.15);
+}
+
+.convert-btn.goback-btn:hover,
+.convert-btn.goback-btn:active,
+.convert-btn.goback-btn:focus{
+  background:#fff;
+  color:#111;
+  border-color:rgba(0,0,0,.2);
+}
+
 /* ==============================
    Preview / Output
 ============================== */
@@ -436,7 +450,7 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
-  /* ✅ 수정 */
+  /*  수정 */
   z-index: 1100;
 }
 
@@ -552,24 +566,23 @@ body {
   font-weight: 600;
 }
 
-/* ✅ 목록 대신 단락 구분 */
 .legal-list {
-  list-style: none;   /* 불릿 완전히 제거 */
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .legal-list li {
-  margin: 12px 0;    /* 단락처럼 여백만 주기 */
+  margin: 12px 0;
   padding: 0;
   color: #374151;
   line-height: 1.6;
 }
 
 
-/* ✅ Privacy / Legal page 목록 전용 스타일 */
+/* Privacy Legal page 목록 전용 스타일 */
 .legal-list {
-  list-style: none;        /* 기본 점 제거 */
+  list-style: none;
   margin: 12px 0 0;
   padding: 0;
 }
@@ -577,7 +590,7 @@ body {
 .legal-list li {
   position: relative;
   margin: 10px 0;
-  padding-left: 18px;      /* 아이콘/점 여백 */
+  padding-left: 18px;
   line-height: 1.6;
   color: #374151;
 }
@@ -591,6 +604,7 @@ body {
   color: #f6ab7a;
   font-weight: bold;
 }
+
 
 
 /* ==============================

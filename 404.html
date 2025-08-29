@@ -1,61 +1,127 @@
 ---
 layout: default
 title: 404 Not Found
-h1: 페이지를 찾을 수 없어요 😵
-subtitle: 요청하신 주소가 이동했거나 삭제되었을 수 있어요.
-tagline: 아래 링크로 이동하거나, 주소를 다시 확인해 주세요.
-description: 404 Not Found
-permalink: /404.html
+description: 페이지를 찾을 수 없어요
+permalink: /404.html # GitHub Pages 규칙상 꼭 /404.html 유지
 sitemap: false
+robots: noindex
 ---
 
-<article class="doc" role="main" aria-labelledby="nf-title">
-    <h2 id="nf-title">어떤 페이지를 찾고 있나요?</h2>
-    <p>
-        입력하신 경로가 올바른지 확인해 보세요. 문제가 계속되면 아래 링크를 이용해 이동하거나, 이슈를 남겨 주세요.
-    </p>
+<section class="nf" role="main" aria-labelledby="nf-title">
+    <style>
+        /* 404 전용 최소 스타일: 사이트 기본 폰트/버튼 톤은 그대로 사용 */
+        .nf {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 56px 20px 72px;
+            text-align: center
+        }
 
-    <div class="callout info">
-        <strong>현재 주소:</strong>
-        <code id="requested-path" style="word-break: break-all;"></code>
-    </div>
+        .nf .code {
+            font-weight: 800;
+            line-height: 1;
+            margin: 0 0 12px;
+            font-size: clamp(56px, 10vw, 120px);
+            letter-spacing: 1px;
+            color: var(--accent, #f6ab7a);
+        }
 
-    <h3>빠른 이동</h3>
-    <ul>
-        <li><a href="{{ '/' | relative_url }}">홈으로</a></li>
-        <li><a href="{{ '/app.html' | relative_url }}">앱 열기</a></li>
-        <li><a href="{{ '/how-it-works.html' | relative_url }}">How it Works</a></li>
-        <li><a href="{{ '/privacy.html' | relative_url }}">Privacy</a></li>
-    </ul>
+        .nf .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 8px
+        }
 
-    <h3>사이트 내비게이션</h3>
-    <p>아래 목록에서 원하는 페이지를 선택하세요.</p>
-    <ul>
-        {% for item in site.data.navigation %}
-        {% if item.external %}
-        <li><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></li>
-        {% else %}
-        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-        {% endif %}
-        {% endfor %}
-    </ul>
+        .nf .sub {
+            color: #667085;
+            margin: 0 0 20px
+        }
 
-    <p>
-        링크가 잘못되었다고 생각되면
-        <a href="https://github.com/iiimaze" target="_blank" rel="noopener noreferrer">GitHub</a>
-        에서 알려 주세요.
-    </p>
+        .nf .line {
+            height: 2px;
+            width: 120px;
+            margin: 18px auto 28px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .18), rgba(0, 0, 0, .06));
+            border: 0
+        }
 
-    <!-- 선택: 큰 버튼 두 개 -->
-    <p>
-        <a class="convert-btn" href="{{ '/' | relative_url }}">홈으로 가기</a>
-    </p>
-</article>
+        .nf .where {
+            font-size: .9rem;
+            background: #f6f7f9;
+            border: 1px solid #e6e8eb;
+            border-radius: 10px;
+            padding: 10px 12px;
+            display: inline-block;
+            max-width: 100%;
+            word-break: break-all
+        }
 
-<script>
-    // 404에 진입한 실제 경로를 보여줍니다.
-    (function () {
-        var el = document.getElementById('requested-path');
-        if (el) el.textContent = window.location.pathname + window.location.search + window.location.hash;
-    })();
-</script>
+        .nf .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 22px 0 12px
+        }
+
+        .nf .btn-ghost {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid currentColor
+        }
+
+        .nf .quick {
+            margin-top: 10px;
+            color: #667085
+        }
+
+        .nf .links {
+            margin-top: 26px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .nf .links a {
+            opacity: .9
+        }
+
+        /* 시스템 다크모드 대비(있는 정도만) */
+        @media (prefers-color-scheme: dark) {
+
+            .nf .sub,
+            .nf .quick {
+                color: #98a2b3
+            }
+
+            .nf .where {
+                background: #101418;
+                border-color: #1c2330
+            }
+
+            .nf .line {
+                background: linear-gradient(90deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .16), rgba(255, 255, 255, .06))
+            }
+        }
+    </style>
+
+    <div class="code">404</div>
+    <p class="title">⛓️‍💥</p>
+    <p class="title">페이지를 찾을 수 없어요.</p>
+    <p class="sub">요청하신 주소가 이동했거나 삭제되었을 수 있습니다.</p>
+
+    <hr class="line" aria-hidden="true">
+
+
+    <div class="actions">
+        <!-- 사이트의 기본 버튼 톤을 그대로 사용 -->
+        <a class="convert-btn" href="{{ '/' | relative_url }}">홈으로</a>
+        <a class="convert-btn goback-btn" href="{{ '/' | relative_url }}"
+            onclick="if (history.length > 1) { history.back(); return false; }">
+            이전 페이지
+        </a>
+        <p class="quick">원하시는 페이지가 보이지 않으면 주소를 다시 확인해 주세요.</p>
+
+</section>

@@ -7,18 +7,18 @@
 - title: "How it Works"
   children:
     - title: "File Renamer"
-      url: "/file-renamer-how-it-works.html"
+      url: "/file-renamer-how-it-works/"
     - title: "Zif"
-      url: "/zif-how-it-works.html"
+      url: "/zif-how-it-works/"
 
 - title: "Blog"
   url: "/blog/"
 
 - title: "Privacy"
-  url: "/privacy.html"
+  url: "/privacy/"
 
 - title: "FAQ"
-  url: "/faq.html"
+  url: "/faq/"
 
 - title: "GitHub"
   url: "https://github.com/iiimaze"

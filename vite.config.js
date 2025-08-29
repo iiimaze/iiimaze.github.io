@@ -6,7 +6,7 @@ export default {
     outDir: "assets/zif", // 빌드 산출물 위치
     emptyOutDir: true, // 매 빌드마다 비우기
     lib: {
-      entry: resolve(__dirname, "zif/src/main.js"), // ✅ 진입 파일 정확히 지정
+      entry: resolve(__dirname, "zif/src/main.js"), //  진입 파일 정확히 지정
       formats: ["es"],
       fileName: () => "main.js", // /assets/zif/main.js 로 출력
     },

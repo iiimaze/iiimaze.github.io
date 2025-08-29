@@ -343,7 +343,7 @@ ready(() => {
 
   function setStageDone() {
     uploadSection.innerHTML = `
-      <div class="upload-icon">✅</div>
+      <div class="upload-icon"></div>
       <div class="upload-text">${
         translations[currentLanguage].completed || "GIF 생성 완료!"
       }</div>

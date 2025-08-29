@@ -38,7 +38,7 @@ toc: true
 
 > 브라우저만으로 안전하게 **파일명 일괄 변경**을 하고 싶다는 요구에서 출발했습니다.  
 > 데스크톱 설치 없이, **100% 로컬 실행**으로 개인정보 걱정 없이 빠르게 정리하는 **File Renamer**의 여정을 기록합니다.  
-> 👉 [파일명 일괄 변경기 바로 사용하기](/file-renamer.html)
+> 👉 [파일명 일괄 변경기 바로 사용하기](/file-renamer)
 
 ## Intro. 이미지 파일명, 왜 신경 쓸까?
 
@@ -111,8 +111,8 @@ toc: true
 
 ### 참고 & 링크
 
-- 사용 가이드: [File Renamer 소개](/file-renamer-intro.html)
-- 바로 실행: [파일명 일괄 변경기](/file-renamer.html)
+- 사용 가이드: [File Renamer 소개](/file-renamer-how-it-works)
+- 바로 실행: [파일명 일괄 변경기](/file-renamer)
   <br>
   {% comment %}
   키워드 메모: 본문·헤딩 전반에 “파일명 일괄 변경 / 파일 이름 일괄 변경 / File Renamer”를 자연스럽게 분산 삽입(5회 이상).

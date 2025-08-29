@@ -22,7 +22,6 @@
 .pagination .current { background: #111827; color: #fff; border-color: #111827; }
 .page-prev, .page-next { font-weight: 500; }
 
-/* ============== NAVER-LIKE BLOG LIST ============== */
 /* 컨테이너 */
 .content { max-width: 980px; margin: 40px auto; padding: 0 20px; }
 

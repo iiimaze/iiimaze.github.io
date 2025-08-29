@@ -2,30 +2,47 @@
 <html lang="ko">
 
 <head>
-    <meta charset="utf-8">
+    <!-- _includes/head.html (추천 교체본) -->
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 Not Found | Meta Image Labs | 브라우저 기반 안전한 이미지 & 파일 변환</title>
-
-<meta name="description" content="404 Not Found">
+<meta name="robots" content="noindex"><!-- 폰트 & 기본 스타일 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
+
+<!-- 네이버 소유확인 --><meta name="naver-site-verification" content="98a9d5133fc8d043f732b2bbd09d922e373f2966"><!-- RSS/Atom 피드 -->
+<link rel="alternate" type="application/atom+xml" title="Meta Image Labs | 브라우저 기반 안전한 이미지 &amp; 파일 변환 Feed"
+    href="/feed.xml">
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name": "Meta Image Labs | 브라우저 기반 안전한 이미지 & 파일 변환",
+  "url": "https://iiimaze.github.io",
+  "sameAs": ["https://github.com/iiimaze"]
+}
+</script>
+
+
+<!-- 파비콘 (업데이트 예정) -->
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>404 Not Found | Meta Image Labs 브라우저 기반 안전한 이미지 &amp; 파일 변환</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="404 Not Found" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="404 Not Found" />
-<meta property="og:description" content="404 Not Found" />
-<link rel="canonical" href="http://localhost:4000/404.html" />
-<meta property="og:url" content="http://localhost:4000/404.html" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="페이지를 찾을 수 없어요" />
+<meta property="og:description" content="페이지를 찾을 수 없어요" />
+<link rel="canonical" href="https://iiimaze.github.io/404.html" />
+<meta property="og:url" content="https://iiimaze.github.io/404.html" />
 <meta property="og:site_name" content="Meta Image Labs 브라우저 기반 안전한 이미지 &amp; 파일 변환" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="404 Not Found" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"404 Not Found","headline":"404 Not Found","url":"http://localhost:4000/404.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"페이지를 찾을 수 없어요","headline":"404 Not Found","url":"https://iiimaze.github.io/404.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/blog.css">
@@ -36,9 +53,9 @@
         
         <header class="header">
     <button class="language-toggle" type="button" aria-label="Toggle language">KOR / ENG</button>
-    <h1>페이지를 찾을 수 없어요 😵</h1>
-    <h3>요청하신 주소가 이동했거나 삭제되었을 수 있어요.</h3>
-    <p class="tagline">아래 링크로 이동하거나, 주소를 다시 확인해 주세요.</p>
+    <h1>404 Not Found</h1>
+    
+    
 </header>
         
         <nav class="site-nav" aria-label="Primary">
@@ -89,11 +106,11 @@
                 <ul class="submenu" aria-label="How it Works menu">
                     
                     <li class="submenu-item">
-                        <a href="/file-renamer-how-it-works.html">File Renamer</a>
+                        <a href="/file-renamer-how-it-works/">File Renamer</a>
                     </li>
                     
                     <li class="submenu-item">
-                        <a href="/zif-how-it-works.html">Zif</a>
+                        <a href="/zif-how-it-works/">Zif</a>
                     </li>
                     
                 </ul>
@@ -120,7 +137,7 @@
 
             <li class="nav-item  ">
                 
-                <a href="/privacy.html" >
+                <a href="/privacy/" >
                     Privacy
                 </a>
                 
@@ -133,7 +150,7 @@
 
             <li class="nav-item  ">
                 
-                <a href="/faq.html" >
+                <a href="/faq/" >
                     FAQ
                 </a>
                 
@@ -157,78 +174,124 @@
     </div>
 </nav>
         <div class="content">
-            <article class="doc" role="main" aria-labelledby="nf-title">
-    <h2 id="nf-title">어떤 페이지를 찾고 있나요?</h2>
-    <p>
-        입력하신 경로가 올바른지 확인해 보세요. 문제가 계속되면 아래 링크를 이용해 이동하거나, 이슈를 남겨 주세요.
-    </p>
+            <section class="nf" role="main" aria-labelledby="nf-title">
+    <style>
+        /* 404 전용 최소 스타일: 사이트 기본 폰트/버튼 톤은 그대로 사용 */
+        .nf {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 56px 20px 72px;
+            text-align: center
+        }
 
-    <div class="callout info">
-        <strong>현재 주소:</strong>
-        <code id="requested-path" style="word-break: break-all;"></code>
-    </div>
+        .nf .code {
+            font-weight: 800;
+            line-height: 1;
+            margin: 0 0 12px;
+            font-size: clamp(56px, 10vw, 120px);
+            letter-spacing: 1px;
+            color: var(--accent, #f6ab7a);
+        }
 
-    <h3>빠른 이동</h3>
-    <ul>
-        <li><a href="/">홈으로</a></li>
-        <li><a href="/app.html">앱 열기</a></li>
-        <li><a href="/how-it-works.html">How it Works</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
-    </ul>
+        .nf .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 8px
+        }
 
-    <h3>사이트 내비게이션</h3>
-    <p>아래 목록에서 원하는 페이지를 선택하세요.</p>
-    <ul>
-        
-        
-        <li><a href="/">Home</a></li>
-        
-        
-        
-        <li><a href="/apps/">Apps</a></li>
-        
-        
-        
-        <li><a href="">How it Works</a></li>
-        
-        
-        
-        <li><a href="/blog/">Blog</a></li>
-        
-        
-        
-        <li><a href="/privacy.html">Privacy</a></li>
-        
-        
-        
-        <li><a href="/faq.html">FAQ</a></li>
-        
-        
-        
-        <li><a href="https://github.com/iiimaze" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        
-        
-    </ul>
+        .nf .sub {
+            color: #667085;
+            margin: 0 0 20px
+        }
 
-    <p>
-        링크가 잘못되었다고 생각되면
-        <a href="https://github.com/iiimaze" target="_blank" rel="noopener noreferrer">GitHub</a>
-        에서 알려 주세요.
-    </p>
+        .nf .line {
+            height: 2px;
+            width: 120px;
+            margin: 18px auto 28px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .18), rgba(0, 0, 0, .06));
+            border: 0
+        }
 
-    <!-- 선택: 큰 버튼 두 개 -->
-    <p>
-        <a class="convert-btn" href="/">홈으로 가기</a>
-    </p>
-</article>
+        .nf .where {
+            font-size: .9rem;
+            background: #f6f7f9;
+            border: 1px solid #e6e8eb;
+            border-radius: 10px;
+            padding: 10px 12px;
+            display: inline-block;
+            max-width: 100%;
+            word-break: break-all
+        }
 
-<script>
-    // 404에 진입한 실제 경로를 보여줍니다.
-    (function () {
-        var el = document.getElementById('requested-path');
-        if (el) el.textContent = window.location.pathname + window.location.search + window.location.hash;
-    })();
-</script>
+        .nf .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 22px 0 12px
+        }
+
+        .nf .btn-ghost {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid currentColor
+        }
+
+        .nf .quick {
+            margin-top: 10px;
+            color: #667085
+        }
+
+        .nf .links {
+            margin-top: 26px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .nf .links a {
+            opacity: .9
+        }
+
+        /* 시스템 다크모드 대비(있는 정도만) */
+        @media (prefers-color-scheme: dark) {
+
+            .nf .sub,
+            .nf .quick {
+                color: #98a2b3
+            }
+
+            .nf .where {
+                background: #101418;
+                border-color: #1c2330
+            }
+
+            .nf .line {
+                background: linear-gradient(90deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .16), rgba(255, 255, 255, .06))
+            }
+        }
+    </style>
+
+    <div class="code">404</div>
+    <p class="title">⛓️‍💥</p>
+    <p class="title">페이지를 찾을 수 없어요.</p>
+    <p class="sub">요청하신 주소가 이동했거나 삭제되었을 수 있습니다.</p>
+
+    <hr class="line" aria-hidden="true">
+
+
+    <div class="actions">
+        <!-- 사이트의 기본 버튼 톤을 그대로 사용 -->
+        <a class="convert-btn" href="/">홈으로</a>
+        <a class="convert-btn goback-btn" href="/"
+            onclick="if (history.length > 1) { history.back(); return false; }">
+            이전 페이지
+        </a>
+        <p class="quick">원하시는 페이지가 보이지 않으면 주소를 다시 확인해 주세요.</p>
+
+</section>
         </div>
         <footer class="site-footer">
     <a href="https://github.com/iiimaze" class="github-link">

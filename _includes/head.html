@@ -1,10 +1,35 @@
+<!-- _includes/head.html (추천 교체본) -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title }} | {{ site.title | default: "File Renamer" }}{% else %}{{ site.title |
-    default: "File Renamer" }}{% endif %}</title>
-{% if page.description %}
-<meta name="description" content="{{ page.description }}">{% endif %}
+
+{%- if page.robots %}
+<meta name="robots" content="{{ page.robots }}">{% endif -%}
+
+<!-- 폰트 & 기본 스타일 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+<!-- 네이버 소유확인 -->
+{%- if site.naver_site_verification -%}
+<meta name="naver-site-verification" content="{{ site.naver_site_verification }}">
+{%- endif -%}
+
+<!-- RSS/Atom 피드 -->
+<link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }} Feed"
+    href="{{ '/feed.xml' | relative_url }}">
+
+{% if site.org and site.org.sameAs %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name": {{ site.title | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "sameAs": {{ site.org.sameAs | jsonify }}
+}
+</script>
+{% endif %}
+
+<!-- 파비콘 (업데이트 예정) -->
