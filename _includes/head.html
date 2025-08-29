@@ -16,6 +16,14 @@
 <meta name="naver-site-verification" content="{{ site.naver_site_verification }}">
 {%- endif -%}
 
+{%- if jekyll.environment == "production" and site.adsense_client -%}
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="{{ site.adsense_client }}">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}"
+    crossorigin="anonymous"></script>
+{%- endif -%}
+
+
 <!-- RSS/Atom 피드 -->
 <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }} Feed"
     href="{{ '/feed.xml' | relative_url }}">
