@@ -7,9 +7,8 @@ sitemap: false
 robots: noindex
 ---
 
-<section class="nf" role="main" aria-labelledby="nf-title">
+<section class="nf" role="main">
     <style>
-        /* 404 전용 최소 스타일: 사이트 기본 폰트/버튼 톤은 그대로 사용 */
         .nf {
             max-width: 840px;
             margin: 0 auto;
@@ -23,7 +22,7 @@ robots: noindex
             margin: 0 0 12px;
             font-size: clamp(56px, 10vw, 120px);
             letter-spacing: 1px;
-            color: var(--accent, #f6ab7a);
+            color: var(--accent, #f6ab7a)
         }
 
         .nf .title {
@@ -45,17 +44,6 @@ robots: noindex
             border: 0
         }
 
-        .nf .where {
-            font-size: .9rem;
-            background: #f6f7f9;
-            border: 1px solid #e6e8eb;
-            border-radius: 10px;
-            padding: 10px 12px;
-            display: inline-block;
-            max-width: 100%;
-            word-break: break-all
-        }
-
         .nf .actions {
             display: flex;
             gap: 12px;
@@ -64,41 +52,16 @@ robots: noindex
             margin: 22px 0 12px
         }
 
-        .nf .btn-ghost {
-            display: inline-block;
-            padding: 10px 16px;
-            border-radius: 12px;
-            border: 1px solid currentColor
-        }
-
         .nf .quick {
             margin-top: 10px;
             color: #667085
         }
 
-        .nf .links {
-            margin-top: 26px;
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap
-        }
-
-        .nf .links a {
-            opacity: .9
-        }
-
-        /* 시스템 다크모드 대비(있는 정도만) */
         @media (prefers-color-scheme: dark) {
 
             .nf .sub,
             .nf .quick {
                 color: #98a2b3
-            }
-
-            .nf .where {
-                background: #101418;
-                border-color: #1c2330
             }
 
             .nf .line {
@@ -114,14 +77,13 @@ robots: noindex
 
     <hr class="line" aria-hidden="true">
 
-
     <div class="actions">
-        <!-- 사이트의 기본 버튼 톤을 그대로 사용 -->
         <a class="convert-btn" href="{{ '/' | relative_url }}">홈으로</a>
         <a class="convert-btn goback-btn" href="{{ '/' | relative_url }}"
             onclick="if (history.length > 1) { history.back(); return false; }">
             이전 페이지
         </a>
-        <p class="quick">원하시는 페이지가 보이지 않으면 주소를 다시 확인해 주세요.</p>
+    </div>
 
+    <p class="quick">원하시는 페이지가 보이지 않으면 주소를 다시 확인해 주세요.</p>
 </section>
