@@ -1,0 +1,60 @@
+---
+layout: null
+permalink: /rss.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <description>{{ site.description | xml_escape }}</description>
+    <language>{{ site.lang | default: "ko-KR" }}</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
+
+    {%- assign posts = site.posts | sort: "date" | reverse -%}
+    {%- for post in posts limit: 30 -%}
+      {%- assign item_url = post.url | absolute_url -%}
+      {%- assign origin = site.url | append: site.baseurl -%}
+
+      {%- comment -%}
+      본문 내 상대경로를 절대경로로 치환(href/src의 "/..." 케이스)
+      {%- endcomment -%}
+      {%- capture content_html -%}{{ post.content }}{%- endcapture -%}
+      {%- capture href_origin_d -%}href="{{ origin }}/{%- endcapture -%}
+      {%- capture href_origin_s -%}href='{{ origin }}/{%- endcapture -%}
+      {%- capture src_origin_d  -%}src="{{  origin }}/{%- endcapture -%}
+      {%- capture src_origin_s  -%}src='{{  origin }}/{%- endcapture -%}
+      {%- assign content_abs = content_html
+        | replace: 'href="/', href_origin_d
+        | replace: "href='/", href_origin_s
+        | replace: 'src="/',  src_origin_d
+        | replace: "src='/",  src_origin_s
+      -%}
+
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <link>{{ item_url }}</link>
+        <guid isPermaLink="true">{{ item_url }}</guid>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+
+        {%- assign summary = post.description | default: post.excerpt | default: post.content -%}
+        <description>{{ summary | strip_html | normalize_whitespace | truncate: 300 | xml_escape }}</description>
+
+        <content:encoded><![CDATA[
+{{ content_abs }}
+        ]]></content:encoded>
+
+        {%- if post.categories -%}
+          {%- for c in post.categories -%}<category>{{ c | xml_escape }}</category>{%- endfor -%}
+        {%- endif -%}
+        {%- if post.tags -%}
+          {%- for t in post.tags -%}<category>{{ t | xml_escape }}</category>{%- endfor -%}
+        {%- endif -%}
+      </item>
+    {%- endfor -%}
+  </channel>
+</rss>
