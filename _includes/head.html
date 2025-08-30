@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
+{% seo %}
+{% feed_meta %}
+
 <!-- 네이버 소유확인 -->
 {%- if site.naver_site_verification -%}
 <meta name="naver-site-verification" content="{{ site.naver_site_verification }}">
@@ -20,13 +23,8 @@
 <!-- Google AdSense -->
 <meta name="google-adsense-account" content="{{ site.adsense_client }}">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}"
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 {%- endif -%}
-
-
-<!-- RSS/Atom 피드 -->
-<link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }} Feed"
-    href="{{ '/feed.xml' | relative_url }}">
 
 {% if site.org and site.org.sameAs %}
 <script type="application/ld+json">
