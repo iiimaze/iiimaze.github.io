@@ -20,7 +20,17 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+      lang: ko_KR
 
+  # 모든 블로그 글(포스트)
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+      lang: ko_KR
+
+  # /blog 페이지네이션(jekyll-paginate-v2)
   - scope:
       path: "blog"
       type: "pages"
@@ -30,7 +40,7 @@ defaults:
         collection: posts
         per_page: 5
         permalink: "/blog/page:num/"
-        sort_field: "date"
+        sort_field: date
         sort_reverse: true
         trail:
           before: 2
@@ -41,6 +51,7 @@ exclude:
   - Gemfile.lock
   - node_modules
   - README.md
+  - vendor
 
 utterances:
   repo: iiimaze/iiimaze.github.io
