@@ -31,8 +31,9 @@
         // ---- 2) 댓글 수 표시 (best effort) ----
         // issue-term이 pathname일 때, 해당 pathname이 포함된 이슈를 검색
         const path = location.pathname.replace(/\/$/, '');
-        const q = `repo:${cfg.repo}+type:issue+in:title+"${encodeURIComponent(path)}"`;
-        fetch(`https://api.github.com/search/issues?q=${q}`)
+        const q = `repo:${cfg.repo} type:issue in:title "${path}"`;
+        const url = 'https://api.github.com/search/issues?' + new URLSearchParams({ q });
+        fetch(url)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
                 if (!data || !data.items || !data.items.length) return;
@@ -73,7 +74,7 @@
         });
         prefersDark.addEventListener('change', () => applyThemeToUtterances(pickTheme()));
 
-        // 사이트의 다크토글 버튼이 data-theme 바꾸면, 아래처럼 호출하세요:
+        // 사이트의 다크토글 버튼이 data-theme 바꾸면, 아래처럼 호출:
         // document.documentElement.setAttribute('data-theme', 'dark'); applyThemeToUtterances('github-dark');
         // document.documentElement.setAttribute('data-theme', 'light'); applyThemeToUtterances('github-light');
     })();
