@@ -164,7 +164,7 @@ python3 -m http.server 8080
 
 ## 🐛 이슈 제보
 
-- Issues: [https://github.com/iiimaze/Image-Renamer/issues](https://github.com/iiimaze/Image-Renamer/issues)
+- Issues 등록: [iiimaze.github.io/issues](https://github.com/iiimaze/iiimaze.github.io/issues)
 - 버그 재현 정보(브라우저/OS/스크린샷/콘솔 로그), 기대/실제 동작을 상세히 적어주세요.
 - PR은 작은 단위로, 테스트/샘플 입력과 함께 올려주세요.
 
