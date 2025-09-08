@@ -3,6 +3,9 @@
 {%- if page.robots %}
 <meta name="robots" content="{{ page.robots }}">{% endif -%}
 
+<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }} RSS"
+  href="{{ '/rss.xml' | relative_url }}">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
