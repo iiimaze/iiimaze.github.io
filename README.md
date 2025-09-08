@@ -7,21 +7,21 @@
 
 **Live**
 
-- [**Image Renamer**](https://iiimaze.github.io/Image-Renamer/)
-- [**ZIF**](https://iiimaze.github.io/Image-Renamer/)
+- [**file Renamer**](https://iiimaze.github.io/file-renamer/)
+- [**ZIF**](https://iiimaze.github.io/zif/)
 
 ## 개요
 
 **Meta Image Labs**는 서버 업로드 없는(Zero‑Upload) 브라우저 기반 미디어 도구를 만듭니다. 모든 처리는 클라이언트에서 수행되며, 개인 정보와 저작권이 브라우저 밖으로 나가지 않습니다. 현재 2가지 서비스를 제공합니다.
 
-- **1) Image Renamer** — 이미지 파일명을 대량으로 일관성 있게 바꾸고, ZIP/개별로 내려받는 도구
+- **1) File Renamer** — 이미지 파일명을 대량으로 일관성 있게 바꾸고, ZIP/개별로 내려받는 도구
 - **2) ZIF (Zero‑Infra GIF Creator)** — 동영상을 웹에서 실사용 가능한 트루컬러에 가까운 고품질 GIF로 변환하는 도구
 
 두 서비스 모두 **HTML5 File API**, **Blob/Object URL**, **Web Worker**, 그리고 필요 시 WebAssembly(FFmpeg.wasm / gifski‑wasm 등)를 활용합니다.
 
 ---
 
-## 🔧 서비스 1: Image Renamer
+## 🔧 서비스 1: File Renamer
 
 > 프라이버시 보장! 업로드 없이 **브라우저에서 즉시** 처리되는 이미지 파일명 일괄 변경 도구.
 
@@ -157,7 +157,7 @@ python3 -m http.server 8080
 
 ## 🗺️ 로드맵
 
-- Image Renamer: 사용자 정의 패턴(`{prefix}_{date:YYYYMMDD}_{index:000}`), 시작 번호/증가 간격, EXIF 기반 리네이밍
+- File Renamer: 사용자 정의 패턴(`{prefix}_{date:YYYYMMDD}_{index:000}`), 시작 번호/증가 간격, EXIF 기반 리네이밍
 - ZIF: 타임라인 에디터(구간/프레임 조절), 품질 사전(Q1\~Q5), H.264→GIF 직관 파이프라인, PWA 오프라인 모드
 
 ---
