@@ -1,4 +1,3 @@
-// zif/src/main.js
 import "./style.css";
 import encode from "gifski-wasm";
 

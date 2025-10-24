@@ -13,13 +13,3 @@
 
 - title: "Blog"
   url: "/blog/"
-
-- title: "Privacy"
-  url: "/privacy/"
-
-- title: "FAQ"
-  url: "/faq/"
-
-- title: "GitHub"
-  url: "https://github.com/iiimaze"
-  external: true

@@ -8,7 +8,7 @@
 **Live**
 
 - [**file Renamer**](https://iiimaze.github.io/file-renamer/)
-- [**ZIF**](https://iiimaze.github.io/zif/)
+- [**ZIF**](https://videotogif.github.io/)
 
 ## 개요
 
