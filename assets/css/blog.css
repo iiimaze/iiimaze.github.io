@@ -1,20 +1,3 @@
-/* 리스트 기본값 리셋 */
-.posts { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 1rem; }
-@media (min-width: 768px) { .posts { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .posts { grid-template-columns: repeat(3, 1fr); } }
-
-/* 카드 */
-.post-item { background: #fff; border: 1px solid #eee; border-radius: 14px; overflow: hidden; transition: transform .15s ease, box-shadow .15s ease; }
-.post-item:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-.post-link { display: block; padding: 16px; text-decoration: none; color: inherit; }
-
-/* 썸네일(옵션) */
-.post-thumb { width: 100%; height: 160px; object-fit: cover; display: block; margin: -16px -16px 12px; }
-
-/* 타이포 – 과하게 진한 느낌 완화 */
-.post-title { font-size: 1.05rem; line-height: 1.35; font-weight: 550; margin: 0 0 .35rem; }
-.post-meta { font-size: .84rem; color: #6b7280; margin: 0 0 .5rem; }
-.post-excerpt { font-size: .95rem; color: #374151; margin: 0; }
 
 /* 페이지네이션(카드형 리스트용) */
 .pagination { display: flex; gap: .5rem; align-items: center; justify-content: center; margin: 1.5rem 0 0; flex-wrap: wrap; }
@@ -25,21 +8,6 @@
 /* 컨테이너 */
 .content { max-width: 980px; margin: 40px auto; padding: 0 20px; }
 
-/* 상단 로그아웃 안내 */
-.heading_logout { margin-bottom: 20px; }
-.heading_logout .title { font-size: 16px; line-height: 1.6; color: #666; }
-
-/* 카테고리 네비게이터 */
-.category_home { margin-top: 12px; }
-.navigator_category { display: flex; flex-wrap: wrap; gap: 8px; }
-.navigator_category .item {
-  display: inline-flex; align-items: center;
-  padding: 8px 12px; border-radius: 18px; border: 1px solid #e5e7eb;
-  background: #fff; color: #374151; font-size: 14px; text-decoration: none;
-}
-.navigator_category .item.is-active {
-  border-color: #527BFF; color: #1f2937; box-shadow: 0 0 0 2px rgba(82,123,255,.1);
-}
 
 /* 리스트(썸네일 우측) */
 .wrap_thumbnail_post_list .item {
@@ -66,14 +34,6 @@
 /* 썸네일 */
 .thumbnail_post .thumbnail_area { position: relative; }
 .img_post { width: 167px; height: 167px; object-fit: cover; border-radius: 8px; display: block; }
-.button_more_img {
-  position: absolute; right: 4px; bottom: 4px; text-decoration: none; font-size: 12px; color: #111;
-  background: rgba(255,255,255,.9); padding: 4px 6px; border-radius: 6px; border: 1px solid #e5e7eb;
-}
-.plus_thumbnail_list { margin-top: 8px; display: none; }
-.plus_thumbnail_list .list_inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-decoration: none; }
-.plus_thumbnail_list .plus_item { width: 100%; }
-.plus_thumbnail_list .plus_img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; }
 
 /* 썸네일 없는 카드(한 칸만) */
 .info_post.only_post ~ .thumbnail_post { display: none; }
@@ -155,34 +115,6 @@
 .post-pager a { flex: 1; text-decoration: none; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 12px; color: #111827; background: #fff; }
 .post-pager a:hover { box-shadow: 0 6px 18px rgba(0,0,0,.06); transform: translateY(-1px); }
 
-/* comments */
-.post-comments { margin: 36px 0 0; }
-
-.comments-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 2rem 0 1rem;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-
-.comments-title small.comments-powered {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: #6b7280; /* 회색톤 */
-}
-
-.comments-title small.comments-powered a {
-  color: #527BFF; /* 메인 포인트 색 */
-  text-decoration: none;
-}
-
-.comments-title small.comments-powered a:hover {
-  text-decoration: underline;
-}
-
-.post-pager{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:32px}
 .pager{padding:.5rem .8rem;border:1px solid #e5e7eb;border-radius:8px;text-decoration:none;color:#111827}
 .pager:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .pager.all{margin:0 auto}
@@ -208,26 +140,8 @@
   color: #111827;
 }
 
-/* “Comments” 카운트가 숫자로 바뀌었을 때 길이가 변해도 안정적으로 */
+/* "Comments" 카운트가 숫자로 바뀌었을 때 길이가 변해도 안정적으로 */
 #comments-count { line-height: 1; }
-
-/* (선택) 작은 보조배지 스타일 — powered by 등을 다시 넣고 싶을 때 재사용 */
-.comments-badge {
-  margin-left: .25rem;
-  font-size: .8rem;
-  font-weight: 500;
-  color: #6b7280;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  padding: .18rem .5rem;
-  border-radius: 999px;
-}
-.comments-badge a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(0,0,0,.28);
-}
-.comments-badge a:hover { border-bottom-color: transparent; }
 
 /* utterances 영역 기본 폭 보장 */
 .utterances, .comments-body { width: 100%; }
@@ -235,10 +149,6 @@
 /* 다크모드가 있다면 */
 html[data-theme="dark"] .comments-card { background: #0f172a; border-color: #1f2937; }
 html[data-theme="dark"] .comments-title { color: #e5e7eb; }
-html[data-theme="dark"] .comments-badge {
-  color: #9ca3af; background: #111827; border-color: #1f2937;
-}
-html[data-theme="dark"] .comments-badge a { border-bottom-color: rgba(255,255,255,.25); }
 
 .post-toc{border:1px solid #e5e7eb;border-radius:12px;padding:16px;background:#fff;margin:16px 0;box-shadow:0 4px 12px rgba(0,0,0,.03)}
 .post-toc__title{display:block;font-weight:800;margin-bottom:8px;color:#111827}
@@ -248,8 +158,6 @@ html[data-theme="dark"] .comments-badge a { border-bottom-color: rgba(255,255,25
 .post-toc__link{text-decoration:none;color:#374151}
 .post-toc__link:hover{text-decoration:underline}
 
-.post-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0;padding:0;list-style:none}
-.post-tags li{margin:0;padding:0}
 .tag-chip{
   display:inline-block;padding:.25rem .6rem;border-radius:999px;
   background:#fff;border:1px solid #e5e7eb;color:#374151;font-size:.9rem;

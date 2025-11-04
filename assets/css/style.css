@@ -34,16 +34,6 @@ body {
   border-bottom: 1px solid #e2e8f0;
 }
 
-.language-toggle {
-  position: absolute;
-  top: 20px; right: 20px;
-  background: linear-gradient(135deg, #A0C878 0%, #ADEED9 100%);
-  color: #fff; border: 0; padding: 8px 16px; border-radius: 20px;
-  font-weight: 600; font-size: .85rem; cursor: pointer;
-  transition: opacity .2s ease;
-}
-.language-toggle:hover { opacity: .9; }
-
 .header h1 { font-size: 2.2rem; font-weight: 800; color: #2d3748; margin-bottom: 8px; }
 .header h3 { font-weight: 600; color: #4a5568; margin-bottom: 8px; font-size: 1.1rem; }
 
@@ -200,9 +190,6 @@ body {
 }
 .advanced-content ul { list-style: none; }
 .advanced-content li { margin-bottom: 12px; padding-left: 20px; position: relative; }
-.advanced-content li::before {
-  content: '•'; color: #A0C878; font-weight: 700; position: absolute; left: 0;
-}
 .advanced-content strong { color: #2d3748; }
 
 /* ==============================
@@ -377,7 +364,6 @@ body {
   .content { padding: 20px; }
   .upload-section { padding: 30px 20px; }
   .settings-grid { grid-template-columns: 1fr; }
-  .language-toggle { position: static; margin-bottom: 20px; }
   .header h1 { font-size: 1.8rem; }
 
   .product-grid { grid-template-columns: 1fr; }
@@ -663,11 +649,7 @@ body {
     border-color: #A0C878; box-shadow: 0 12px 30px rgba(180, 246, 122, 0.15);
   }
 
-  .footer-nav {
-    margin-bottom: 1rem;
-}
-
-.footer-links {
+  .footer-links {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -691,23 +673,4 @@ body {
     opacity: 0.5;
     user-select: none;
 }
-
-   /* Dark mode */
-    /* .product-card {
-    background: #374151; border-color: #4a5568;
-  } */
-
-
-  /* body {
-    background: linear-gradient(135deg, #4a4a4a 0%, #6b6b6b 100%);
-    color: #e8e8e8;
-  }
-  .container { background: #2d3748; border: 1px solid #4a5568; }
-  .header { border-bottom-color: #4a5568; }
-  .header h1, .header h3 { color: #f7fafc; }
-  .upload-section, .setting-group, .advanced-settings { background: #374151; border-color: #4a5568; }
-  #preview { background: #374151; border-color: #4a5568; }
-  .section-title { color: #f7fafc; border-bottom-color: #4a5568; }
-  .setting-group code { background: #4a5568; color: #e2e8f0; }
-  .site-footer { border-top-color: #4a5568; } */
 }
