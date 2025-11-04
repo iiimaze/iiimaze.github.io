@@ -93,7 +93,8 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
     position: relative;
   }
 
-  .frp-app input[type="text"] {
+  .frp-app input[type="text"],
+  .frp-app select {
     width: 100%;
     padding: 15px 20px;
     border: 2px solid #e2e8f0;
@@ -103,7 +104,17 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
     transition: .3s;
   }
 
-  .frp-app input[type="text"]:focus {
+  .frp-app select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 45px;
+  }
+
+  .frp-app input[type="text"]:focus,
+  .frp-app select:focus {
     outline: none;
     border-color: #A0C878;
     box-shadow: 0 0 0 4px rgba(180, 246, 122, 0.15);
@@ -475,6 +486,22 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="extensionOption">확장자 변환 (선택사항)</label>
+        <div class="input-wrapper">
+          <select id="extensionOption">
+            <option value="">기존 확장자 유지</option>
+            <option value="jpg">JPG로 변환</option>
+            <option value="png">PNG로 변환</option>
+            <option value="webp">WEBP로 변환</option>
+            <option value="pdf">PDF로 변환</option>
+            <option value="txt">TXT로 변환</option>
+            <option value="mp4">MP4로 변환</option>
+            <option value="mp3">MP3로 변환</option>
+          </select>
+        </div>
+      </div>
+
       <!--  h2 #2: 파일 선택 섹션 시작 -->
       <h2 class="sr-only">파일명 일괄 변경 파일 선택</h2>
 
@@ -529,6 +556,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
   // === 기존 JS 그대로 (약간만 정리) ===
   const form = document.getElementById('renameForm');
   const prefixInput = document.getElementById('prefix');
+  const extensionOption = document.getElementById('extensionOption');
   const fileInput = document.getElementById('files');
   const previewGrid = document.getElementById('previewGrid');
   const previewContainer = document.getElementById('previewContainer');
@@ -591,10 +619,11 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
   function updateFilenamePreview() {
     if (!selectedFilesArray.length) { filenamePreview.style.display = 'none'; return; }
     const prefix = prefixInput.value;
+    const newExt = extensionOption.value;
     const examples = [];
     selectedFilesArray.slice(0, 3).forEach((file, i) => {
       let newName = prefix.endsWith('_') ? prefix.slice(0, -1) : prefix;
-      const ext = file.name.split('.').pop();
+      const ext = newExt || file.name.split('.').pop();
       examples.push(`${newName}_${String(i + 1).padStart(3, '0')}.${ext}`);
     });
     if (selectedFilesArray.length > 3) examples.push(`... 외 ${selectedFilesArray.length - 3}개`);
@@ -675,6 +704,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
 
   fileInput.addEventListener('change', e => updatePreview(e.target.files));
   prefixInput.addEventListener('input', updateFilenamePreview);
+  extensionOption.addEventListener('change', updateFilenamePreview);
 
   fileWrapper.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
@@ -682,6 +712,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
 
   async function downloadIndividualFiles() {
     const prefix = prefixInput.value.trim();
+    const newExt = extensionOption.value;
     const files = fileInput.files;
     if (!prefix || !files.length) { alert('접두어와 파일을 모두 선택해주세요.'); return; }
     individualBtn.disabled = true; submitBtn.disabled = true; individualBtn.textContent = '다운로드 중...'; progressContainer.style.display = 'block';
@@ -689,7 +720,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
       let done = 0;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const ext = file.name.split('.').pop();
+        const ext = newExt || file.name.split('.').pop();
         const cleanPrefix = prefix.endsWith('_') ? prefix.slice(0, -1) : prefix;
         const filename = `${cleanPrefix}_${String(i + 1).padStart(3, '0')}.${ext}`;
         const blob = new Blob([file], { type: file.type });
@@ -716,6 +747,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const prefix = prefixInput.value.trim();
+    const newExt = extensionOption.value;
     const files = fileInput.files;
     if (!prefix || !files.length) { alert('접두어와 파일을 모두 선택해주세요.'); return; }
     submitBtn.disabled = true; individualBtn.disabled = true; submitBtn.textContent = '처리 중...'; progressContainer.style.display = 'block';
@@ -724,7 +756,7 @@ keywords: "파일명 변경, 파일 이름 일괄 변경, 네이버클라우드,
       let done = 0;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const ext = file.name.split('.').pop();
+        const ext = newExt || file.name.split('.').pop();
         const cleanPrefix = prefix.endsWith('_') ? prefix.slice(0, -1) : prefix;
         const filename = `${cleanPrefix}_${String(i + 1).padStart(3, '0')}.${ext}`;
         const buf = await file.arrayBuffer();
