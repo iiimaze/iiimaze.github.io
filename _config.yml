@@ -52,6 +52,7 @@ exclude:
   - node_modules
   - README.md
   - vendor
+  - data-remover/
 
 utterances:
   repo: iiimaze/iiimaze.github.io
