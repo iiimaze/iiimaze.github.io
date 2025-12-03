@@ -1,8 +1,8 @@
 - title: "Home"
   url: "/"
 
-- title: "Apps"
-  url: "/apps/"
+- title: "Tools"
+  url: "/tools"
 
 - title: "How it Works"
   children:
